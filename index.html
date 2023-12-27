@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/layout/src/styles.css">
+</head>
+<body>
+    <div class="modalWrapper">
+        <div class="modal">
+            <span id="modal_closeButton">X</span>
+            <form class="modal_input" action="URL">
+                <div class="modal_input_necessarily">
+                    <p>Name<span>*</span></p>
+                    <input type="text" name="userName" value="Enter name">
+                    <p class="modal_warning">This field is required.</p>
+                </div>
+                <div class="modal_input_necessarily">
+                    <p>Email<span>*</span></p>
+                    <input type="text" name="userEmail" value="Enter email">
+                    <p class="modal_warning">This field is required.</p>
+                </div>
+                <div class="modal_input_necessarily">
+                    <p>Phone number<span>*</span></p>
+                    <input type="tel" name="userPhoneNumber" value="+7 900 000 00 00">
+                    <p class="modal_warning">This field is required.</p>
+                </div>
+                <div class="modal_input_notNecessarily">
+                    <p>Company</p>
+                    <input type="text" name="userCompany" value="Enter company">
+                </div>
+                <div class="modal_input_notNecessarily">
+                    <p>Website/Store URL</p>
+                    <input type="text" name="userWebsite" value="Enter Website/Store URL">
+                </div>
+                <p id="modal_input_globalWarning">Please fill in all required fields</p>
+                <p id="modal_input_agreement">By submitting this form are agreeing to Budss's <a>Privacy Policy</a> and <a>Terms of Use</a></p>
+                <button class="submitButton">Contact sales</button>
+            </form>
+            <div class="modal_finish">
+                <img src="/layout/assets/modalFinishImg.svg" alt="">
+                <h2>Thank you!</h2>
+                <p>Thank you, we have received your application and will contact you soon!</p>
+                <button id="modal_finish_button">Super!</button>
+            </div>
+        </div>   
+    </div>
+    
+    <header>
+        <ul class="nav">
+            <li class="nav_forBuisnes"><a href="">For Buisness</a> <div class="nav_backPlate"></div></li>
+            <li><a href="">For Customers</a></li>
+        </ul>
+    </header>
+
+    <div class="head">
+        <img src="/layout/assets/logo.svg" alt="logo" class="head_logo">
+        <div class="head_centerSpace"></div>
+        <button class="contactButton">Contact sales</button>
+        <img class="head_burger" src="/layout/assets/burger.svg" alt="burger">
+    </div>
+    
+    <div class="cookieAgreements">
+        <p id="cookieAgreements_close" onclick = 'closeCookieAgreements()'>X</p>
+        <p>This website uses cookies to ensure you get the best experience on our website. They also allow us to analyze user behavior in order to constantly improve the website for you.</p>
+        <button id="cookieAgreements_accept" onclick = 'closeCookieAgreements()'>Accept</button>
+        <button id="cookieAgreements_decline" onclick = 'closeCookieAgreements()'>Decline</button>
+    </div>
+
+    <section class="introduction">
+        <div class="introduction_text">
+            <h1>Everyone is an Influencer</h1>
+            <p>Budss is a payments as a service and WOM engine dedicated to acquisition and retention of customers to your business.</p>
+            <button class='contactButton'>Contact sales</button>
+        </div>
+        <img class="introduction_img" src='/layout/assets/wooman.svg' alt='wooman'>
+    </section>
+
+    <section class="about">
+        <h1>About Budss</h1>
+        <img id="aboutLeftSideImg" src="/layout/assets/aboutLeftSide.svg" alt="aboutLeftSid">
+        <div class="about_content">
+            <div class="about_content_leftSide">
+                <p>Payment as a service,  powered seamlessly by  our network of shoppers</p>
+                <img id="about_rectangleImg" src="/layout/assets/rectangle.svg" alt="rectangle">
+            </div>
+            <div class="about_content_cards">
+                <div class="about_content_cards_card">
+                    <img src="/layout/assets/star.svg" alt="star">
+                    <h2>Contactless</h2>
+                    <p>Budss uses near field communication (NFC) for  making contactless payments.</p>
+                </div>
+                <div class="about_content_cards_card">
+                    <img id="arrow" src="/layout/assets/arrow.svg" alt="arrow">
+                    <h2>Increased Buying Power</h2>
+                    <p>Returning customers spend  up to 3X more.</p>
+                </div>
+                <div class="about_content_cards_card">
+                    <img id="brokenLine" src="/layout/assets/brokenLine.svg" alt="brokenLine">
+                    <h2>Analutics & Insights</h2>
+                    <p>Gain a holistic view into your  customers’ buying behavior  & purchasing patterns.</p>
+                </div>
+                <div class="about_content_cards_card cardFraud">
+                    <img id="chainLinks" src="/layout/assets/chainLinks.svg" alt="chainLinks">
+                    <h2>Fraud Protection</h2>
+                    <p>Budss handles all payments 
+                        with a fraud prevention 
+                        algorithm to flag high risk 
+                        purchases & a user set PIN code 
+                        to keep payment info secure. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="howWorks">
+        <img class="howWorks_phone" src="/layout/assets/phone.svg" alt="phone">
+        <div class="howWorks_ticker">
+            <div class="howWorks_ticker_1">
+                <div class="turquoiseText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+                <div class="turquoiseText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+            </div>
+            <div class="howWorks_ticker_2">
+                <div class="violetText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+                <div class="violetText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+            </div>
+            <div class="howWorks_ticker_3">
+                <div class="orangeText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+                <div class="orangeText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+                <div class="orangeText">How Budss Works <img src="/layout/assets/howWorksText.svg" alt="howWorksText"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="discounts">
+        <ul>
+            <li>15%</li>
+            <li>Increase <br class="discounts_lineBreak"> in Purchase Amount</li>
+        </ul>
+        <ul>
+            <li>30%</li>
+            <li>Growth <br class="discounts_lineBreak"> in Annual Sales</li>
+        </ul>
+        <ul>
+            <li>10%</li>
+            <li>Growth in <br class="discounts_lineBreak"> New Customers</li>
+        </ul>
+    </div>
+
+    <section class="info">
+        <div class="info_head">
+            <h1>Why Budss</h1>
+            <h2>
+                We Provide Advanced Payment Solutions
+                To Grow Your Buisness
+            </h2>
+            <img id="info_rectangleImg" src="/layout/assets/rectangle.svg" alt="rectangle">
+        </div>
+        <div class="info_cards">
+            <div class="info_cards_cardTurn">
+                <picture>
+                    <source media="(min-width:1025px)" srcset="/layout/assets/turnPhone.svg">
+                    <source media="(max-width:425px)" srcset="/layout/assets/turnPhone_mobile.svg">
+                    <img src="/layout/assets/turnPhone.svg" alt="turnPhone" style="width:auto;">
+                  </picture>
+                <div class="info_cards_cardTurn_text">
+                    <h2>
+                        Turn your
+                        customers into
+                        loyal influencers
+                    </h2>
+                    <p>
+                        Budss helps businesses harness the
+                        exponential power of loyal customers
+                        for acquisition and retention.
+                    </p>
+                </div> 
+            </div>
+            <div class="info_cards_cardHarness">
+                <img id="shopperViolet" src="/layout/assets/harnessShopperViolet.svg" alt="harnessShopperViolet">
+                <img id="shopperOrange" src="/layout/assets/harnessShopperOrange.svg" alt="harnessShopperOrange">
+                <img id="shopperTurquoise" src="/layout/assets/harnessShopperTurquoise.svg" alt="harnessShopperTurquoise">
+                <div class="info_cards_cardHarness_text">
+                    <h2>
+                        Harness the power
+                        of buying in bulk
+                    </h2>
+                    <p>
+                        Get at least 2X more sales with Budss Buying
+                        Groups. Your customer base will grow
+                        exponentially as your customers add their
+                        friends & family to your personalized group.
+                    </p>
+                </div>
+            </div>
+            <div class="info_cards_cardSupercharge">
+                <img id="superchargeImg" src="/layout/assets/superchargeImg.svg" alt="superchargeImg">
+                <div class="info_cards_cardSupercharge_text">
+                    <h2>
+                        Supercharge
+                        Loyalty With Instant
+                        Cash Back
+                    </h2>
+                    <p>
+                        Budss allows for shoppers to earn
+                        immediate cash back at their
+                        favorite stores.
+                    </p>
+                </div>
+            </div>
+            <div class="info_cards_cardSeasoned">
+                <img id="seasonedImg" src="/layout/assets/seasonedImg.svg" alt="seasonedImg">
+                <div class="info_cards_cardSeasoned_text">
+                    <h2>
+                        Seasoned with AI
+                        and Gamification
+                    </h2>
+                    <p>
+                        AI programming creates a personalized
+                        customer journey, offering recommendations
+                        for their next purchase and optimizing
+                        rewards for after purchase.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whiteWrapper">  
+        <div class="STA">
+            <h2>Let Your Buisness Grow</h2>
+            <button class='contactButton'>Contact sales</button>
+        </div>
+        <div class="brands">
+            <div class="brands_text">
+                <h1>Your Brand Awareness Maters</h1>
+                <p>Budss is a husle free solution to put your brand on any digital surface including Inbrandsgram, Facebook, Twitter and TikTok</p>
+            </div>
+            <div class="brands_img">
+                <img id="facebookImg" src="/layout/assets/facebook.svg" alt="facebook">
+                <img id="twitterImg" src="/layout/assets/twitter.svg" alt="twitter">
+                <img id="instagramImg" src="/layout/assets/instagram.svg" alt="instagram">
+                <img id="tikTokImg" src="/layout/assets/tikTok.svg" alt="tikTok">
+            </div>
+        </div>
+        <div class='logos'>
+            <img src="/layout/assets/wooCommerce.svg" alt="wooCommerce">
+            <img src="/layout/assets/shopify.svg" alt="shopify">
+            <img src="/layout/assets/square.svg" alt="square">
+            <img src="/layout/assets/squareSpace.svg" alt="squareSpace">
+            <img src="/layout/assets/clover.svg" alt="clover">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_desktop">
+            <ul class="topFooter">
+                <li><img id="topFooter_logo" src="/layout/assets/logo.svg" alt="logo"></li>
+                <li id="topFooter_forBuisness"><a >For Buisness</a></li>
+                <li id="topFooter_forCustomers"><a>For Customers</a></li>
+                <li id="topFooter_button"><button class='contactButton'>Contact sales</button></li>
+                <li id="topFooter_download">
+                    <a href=""><img id="topFooter_download_appStore"  src="/layout/assets/appStore.svg" alt="appStore"></a>
+                    <a href=""><img id="topFooter_download_googlePlay" src="/layout/assets/googlePlay.svg" alt="googlePlay"></a>
+                </li>
+            </ul>
+            <div class="line"></div>
+            <div class="bottomFooter">
+                <p id="copyright">© Copyright 2023, All Rights Reserved by Budss</p>
+                <ul>
+                    <li><a>Privacy Policy</a></li>
+                    <li><a>Terms Of Use - Seller</a></li>
+                    <li><a>Terms of Use - Sellers & Customers</a></li>
+                </ul>
+            </div>   
+        </div>
+
+        <div class="footer_mobile">
+            <img class="footer_mobile_logo" src="/layout/assets/logo.svg" alt="logo">
+            <a>For Buisness</a>
+            <a>For Customers</a>
+            <a>Privacy Policy</a>
+            <a>Terms Of Use - Seller</a>
+            <a>Terms of Use - Sellers & Customers</a>
+            <button class='contactButton'>Contact sales</button>
+            <div class="footer_mobile_download">
+                <a href=""><img src="/layout/assets/appStore.svg" alt="appStore"></a>
+                <a href=""><img src="/layout/assets/googlePlay.svg" alt="googlePlay"></a>
+            </div>
+            <div class="line"></div>
+            <p>© Copyright 2023, All Rights Reserved by Budss</p>
+        </div>  
+    </footer>
+</body>
+<script>
+    const modal = document.querySelector('.modal')
+    const allInput = document.querySelectorAll('input')
+    const submitButton = document.querySelector('.submitButton')
+    const allButtons = document.querySelectorAll('.contactButton')
+    const wrapper = document.querySelector('.modalWrapper')
+    const closeButton = document.querySelector('#modal_closeButton')
+    const finishButton = document.querySelector('#modal_finish_button')
+    const modalInput = document.querySelector('.modal_input')
+    const modalFinish = document.querySelector('.modal_finish')
+    const inputWarnings = document.querySelectorAll('.modal_warning')
+    const inputGlobalWarning = document.querySelector('#modal_input_globalWarning')
+    const cookieAgreements = document.querySelector('.cookieAgreements')
+
+
+    for (let button of allButtons) {
+        button.onclick = openModal
+    }
+
+    closeButton.onclick = closeModal
+    finishButton.onclick = closeModal
+
+    function closeCookieAgreements() {
+        cookieAgreements.style.display = 'none'
+    }
+
+    function openModal() {
+        wrapper.style.display = 'flex'
+        wrapper.firstElementChild.style.display = 'flex'
+        modalInput.style.display = 'flex'
+        modalFinish.style.display = 'none'
+    }
+
+    function closeModal() {
+        for (let input of allInput) {
+            input.value = input.defaultValue
+        }
+        wrapper.style.display = 'none'
+        wrapper.firstElementChild.style.display = 'none'
+    }
+
+    modalInput.onclick = function(e) {
+        if (e.target.nodeName === 'INPUT') {
+            const target = e.target
+
+            if (target.value == target.defaultValue) {
+                target.value = ''
+            }
+
+            target.onblur = function (e) {
+                if (e.target.value == '') {
+                    e.target.value = e.target.defaultValue
+                } else {
+                    e.target.style.outline = '1px solid #F1F1F1'
+                    e.target.closest('.modal_input_necessarily').lastElementChild.style.display = 'none'
+                }
+
+                let count = 0;
+                for (let input of allInput) {
+                    if ((input.value !== input.defaultValue) || (input.defaultValue == 'Enter company') || (input.defaultValue == "Enter Website/Store URL")) {
+                        count++
+                    }
+                }
+                if (count == 5) {
+                    for (let warning of inputWarnings) {
+                        warning.style.display = 'none'
+                    }
+                    submitButton.style.backgroundColor = '#954CED'
+                    inputGlobalWarning.style.display = 'none'  
+                }
+            }
+        }
+    }
+
+    submitButton.onclick = function(e) {
+        e.preventDefault()
+        let count = 0;
+        for (let input of allInput) {
+            if ((input.value == input.defaultValue) && ((input.defaultValue !== 'Enter company') && (input.defaultValue !== "Enter Website/Store URL"))) {
+                input.style.outline = '1px solid #EC1211'
+                for (let warning of inputWarnings) {
+                    warning.style.display = 'block'
+                }
+                inputGlobalWarning.style.display = 'block'
+                submitButton.style.backgroundColor = '#A7A7A7'
+            } else {
+                count++
+            }
+        }
+        if (count == 5) {
+            wrapper.style.display = 'flex'
+            wrapper.firstElementChild.style.display = 'flex'
+            modalInput.style.display = 'none'
+            modalFinish.style.display = 'flex'
+        }
+    }
+</script>
+</html>
