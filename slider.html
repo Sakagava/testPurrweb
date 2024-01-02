@@ -109,39 +109,42 @@
     let startPoint = 0;
     let isAnimating = false;
     let transitionSlide = 0;
-    let stepDistancesSlide = slideWidth / interval * 100
-    let stepDistancesSlider = slideWidth / interval * 100
+    let stepDistancesSlide = 30
+    let stepDistancesSlider = 30
     let slideId = 0
 
+    //Создаём точки под слайдами
     for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dot.addEventListener('click', () => goToSlide(i));
         dotsContainer.appendChild(dot);
     }
-
     const dots = document.querySelectorAll('.dot');
     updateDots();
 
+    //Присваиваем слайдам id
     for (let slide of slides.children) {
         slide.id = slideId
         slideId++
     }
 
+    //Анимация смены слайдов
     function replacementSlide(direction) {
-        if(isAnimating) {
+        if (isAnimating) {
             return
         }
 
         switch (direction) {
             case 'left': 
                 isAnimating = true
+
+                //Меняем структуру html для "бесшовной" анимации от первого слайда к последнему
                 if (currentSlide.id == 0) {
-                    transitionSlide === 0 ? transitionSlide = -slideWidth : transitionSlide = 0
-
-                    slides.style.transform = `translateX(${-slideWidth}px)`
                     slides.prepend(slides.lastElementChild)
-
+                    transitionSlide === 0 ? transitionSlide = -slideWidth : transitionSlide = 0
+                    slides.style.transform = `translateX(${-slideWidth}px)`
+                    
                     animation('slides', 'left')
 
                     setTimeout((() => {
@@ -150,9 +153,8 @@
                         for (let slide of slides.children) {
                             slide.style.transform = `translateX(${0}px)`
                         }
-
+                        
                         startPoint = -slideWidth*(totalSlides)
-
                         slides.style.transform = `translateX(${-slideWidth*(totalSlides-1)}px)`;
                         areChildrenInOrder(slides, 'right') 
                         sortChildren(slides);
@@ -164,9 +166,9 @@
                         currentSlide = lastSlide
                         transitionSlide = 0
                         startPoint = -1200
-                        updateDots()
                     }), interval)
 
+                //Двигаем влево без изменения структуры html
                 } else {
                     animation('slider', 'left')
                     currentSlide = currentSlide.previousElementSibling
@@ -177,35 +179,37 @@
             case 'right':
                 isAnimating = true
 
+                //Меняем структуру html для "бесшовной" анимации от последнего слайда к первому
                 if (currentSlide.id == (totalSlides-1)) {
-                transitionSlide === 0 ? transitionSlide = 0 : transitionSlide = -slideWidth
-                slides.style.transform = `translateX(${-slideWidth*[totalSlides-2]}px)`
-                slides.append(slides.firstElementChild)
+                    slides.append(slides.firstElementChild)
+                    transitionSlide === 0 ? transitionSlide = 0 : transitionSlide = -slideWidth
+                    slides.style.transform = `translateX(${-slideWidth*[totalSlides-2]}px)`
+                    
 
-                animation('slides', 'right')
+                    animation('slides', 'right')
 
-                setTimeout((() => {
-                    slides.style.transform = `translateX(${0}px)`;
-                    for (let slide of slides.children) {
-                        slide.style.transform = `translateX(${0}px)`
-                    }
+                    setTimeout((() => {
+                        slides.style.transform = `translateX(${0}px)`;
+                        for (let slide of slides.children) {
+                            slide.style.transform = `translateX(${0}px)`
+                        }
 
-                    areChildrenInOrder(slides, 'right') 
-                    sortChildren(slides);
+                        areChildrenInOrder(slides, 'right') 
+                        sortChildren(slides);
 
-                    while (slides.firstElementChild.id !== '0') {
-                        slides.append(slides.firstElementChild)
-                    }
+                        while (slides.firstElementChild.id !== '0') {
+                            slides.append(slides.firstElementChild)
+                        }
 
-                    startPoint = 0
-                    transitionSlide = 0
-                    currentSlide = slides.children[0]
-                    updateDots()
-                }), interval)
-                break
+                        startPoint = 0
+                        transitionSlide = 0
+                        currentSlide = slides.children[0]
+                    }), interval)
+                    break
+
+                //Двигаем влево без изменения структуры html
                 } else {
                     animation('slider', 'right')
-                    updateDots()
                     currentSlide = currentSlide.nextElementSibling
                 }
                 transitionSlide = 0
@@ -221,6 +225,7 @@
         });
     }
 
+    //Перемещение к нужному слайду по нажатию на точку снизу
     function goToSlide(slideIndex) {
         if (isAnimating) {
             return
@@ -242,6 +247,7 @@
         updateDots();
     }
 
+    //Анимация перемещения к нужному слайду
     function animationDot(startOffset, endOffset, direction) {
         const start = Date.now();
         const duration = interval;
@@ -262,7 +268,7 @@
                 }
 
                 drawSlider(timePassed, direction, newPosition)
-            }, 95);
+            }, 40);
 
             function drawSlider(timePassed, direction, newPosition) {
                 if (direction == 'left') {
@@ -275,6 +281,7 @@
         animate(direction)
     }
 
+    //Узнаём являются ли слайды отсортированными
     function areChildrenInOrder(parentElement) {
         const children = Array.from(parentElement.children);
         const startId = parseInt(children[0].id, 10);
@@ -290,6 +297,7 @@
         return true;
     }
 
+    //Сортировка html документа
     function sortChildren(parentElement, edge) {
         const children = Array.from(parentElement.children);
 
@@ -304,6 +312,16 @@
         });
 
         children.forEach(child => parentElement.appendChild(child));
+    }
+
+    function leftShift() {
+        slides.style.transform = `translateX(${startPoint + stepDistancesSlider}px)`;
+        startPoint += stepDistancesSlider
+    }
+
+    function rightShift() {
+        slides.style.transform = `translateX(${startPoint - stepDistancesSlider}px)`;
+        startPoint = startPoint - stepDistancesSlider
     }
 
     function animation(elem, direction) {
@@ -325,15 +343,13 @@
                 }
 
                 drawSlider(timePassed, direction)
-            }, 95);
+            }, 46);
 
             function drawSlider(timePassed, direction) {
                 if (direction == 'left') {
-                    slides.style.transform = `translateX(${Math.ceil(startPoint + stepDistancesSlider)}px)`;
-                    startPoint += stepDistancesSlider
+                    leftShift()
                 } else {
-                    slides.style.transform = `translateX(${startPoint - stepDistancesSlider}px)`;
-                    startPoint = startPoint - stepDistancesSlider
+                    rightShift()
                 }
             }
         }
@@ -353,8 +369,7 @@
                 if (direction == 'left') {
                     for (let slide of slides.children) {
                         if (slide == lastSlide) {
-                            slide.style.transform = `translateX(${transitionSlide + stepDistancesSlide}px)`;
-                            transitionSlide += stepDistancesSlide
+                            leftShift()
                         } else {
                             slide.style.transform = `translateX(${transitionSlide + stepDistancesSlide}px)`;
                         }
@@ -362,15 +377,14 @@
                 } else {
                     for (let slide of slides.children) {
                         if (slide == slides.children[totalSlides-1]) {
-                            slide.style.transform = `translateX(${transitionSlide - stepDistancesSlide}px)`;
-                            transitionSlide = transitionSlide - stepDistancesSlide
+                            rightShift()
                         } else {
                             slide.style.transform = `translateX(${transitionSlide - stepDistancesSlide}px)`;
                         }
                     }
                 }
             }
-            }, 95);
+            }, 46);
         }
     }
 </script>
