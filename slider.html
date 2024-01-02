@@ -166,6 +166,7 @@
                         currentSlide = lastSlide
                         transitionSlide = 0
                         startPoint = -1200
+                        updateDots()
                     }), interval)
 
                 //Двигаем влево без изменения структуры html
@@ -204,6 +205,7 @@
                         startPoint = 0
                         transitionSlide = 0
                         currentSlide = slides.children[0]
+                        updateDots()
                     }), interval)
                     break
 
